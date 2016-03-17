@@ -25,8 +25,6 @@ function cacheUser (username) {
     localStorage.currentUser = String(username);
 }
 
-$('#login-messages').hide();
-
 $("#login").click(function () {
     var username = $('#username').val();
     var password = $('#password').val();
