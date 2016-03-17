@@ -17,7 +17,7 @@
 		<script src="js/vendor.min.js"></script>
 		<script src="js/app.min.js"></script>
   	</head>
-  	<body>
+  	<body ng-controller="baseController as baseCtl">
 
 	<div class="tesla-logo-pulldown-div navbar-header navbar-content-center horizontal-div"> 
 		<div class="vertical-div">
@@ -38,9 +38,9 @@
         </div>
         <div id="navbar" class="navbar-content-right navbar-collapse collapse"> 
           <ul class="nav navbar-nav navbar-right"> 
-            <li><span><font>logged in as:</font><br/>Tesla</span></li>
+            <li><span><font>logged in as:</font><br/>{{baseCtl.currentUser}}</span></li>
             <li style="border-left: 1px solid rgb(204, 0, 0);"><a href="#">Admin</a></li>
-            <li class=""><a href="login.html">Logout</a></li>
+            <li ng-click="baseCtl.logout()"><a href="#">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

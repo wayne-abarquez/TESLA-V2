@@ -51,8 +51,10 @@ gulp.task('app-scripts', function () {
     return gulp.src([
         paths.srcJs + 'constants/data.js',
         paths.srcJs + 'InfoWindows.js',
+        paths.srcJs + 'app.js',
+        paths.srcJs + 'controllers/baseController.js',
         paths.srcJs + 'controllers/TeslaController.js',
-        paths.srcJs + 'app.js'
+        paths.srcJs + 'tesla.js'
     ])
         .pipe($.plumber())
         .pipe($.eslint())

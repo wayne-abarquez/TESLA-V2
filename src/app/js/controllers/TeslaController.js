@@ -169,7 +169,7 @@ function filter_PartNumber_Origin(partNumbers, key1, searchString, key2, searchN
 
 (function () {
 	'use strict';
-	angular.module("teslaBase", [])
+	angular.module('teslaBase')
 	.controller('teslaBaseController', ['$scope', '$http', function($scope, $http)
 	{
 		$scope.companys = companyData;
