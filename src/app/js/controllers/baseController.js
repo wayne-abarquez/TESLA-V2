@@ -2,9 +2,9 @@
 'use strict';
 
 angular.module('teslaBase')
-    .controller('baseController', [baseController]);
+    .controller('baseController', ['userSession', baseController]);
 
-    function baseController () {
+    function baseController (userSession) {
         var vm = this;
 
         vm.currentUser = '';
@@ -17,20 +17,12 @@ angular.module('teslaBase')
         /* Controller Functions here */
 
         function initialize () {
-            vm.currentUser = localStorage.currentUser;
-
-            if (!vm.currentUser) {
-                redirectLogin();
-            }
+            userSession.redirectIfLoggedIn();
+            vm.currentUser = userSession.getUser();
         }
 
         function logout () {
-            localStorage.removeItem('currentUser');
-            redirectLogin();
-        }
-
-        function redirectLogin() {
-            window.location.href = "/TESLA-V2/login.html";
+            userSession.logout();
         }
     }
 }());

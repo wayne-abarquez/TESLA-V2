@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="manifest.appcache">
+<html> <!--  manifest="manifest.appcache" -->
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<!-- VENDOR CSS -->
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <script src="js/vendorlogin.min.js"></script>
+    <script src="js/vendor.min.js"></script>
     <script src="js/login.min.js"></script>
   </body>
 </html>

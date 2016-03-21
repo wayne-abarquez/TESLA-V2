@@ -1,5 +1,5 @@
-				  
-var ABCChina = '<div id="ABCChinaContent">' + 
+
+var ABCChina = '<div id="ABCChinaContent">' +
 			   '	<h1 class="infoWindowHeading">ABC China</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -14,10 +14,10 @@ var ABCChina = '<div id="ABCChinaContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var ABCChinaInfowindow = new google.maps.InfoWindow({content: ABCChina, zIndex:1});
 
-var NOSMexica = '<div id="NOSMexicaContent">' + 
+var NOSMexica = '<div id="NOSMexicaContent">' +
 			   '	<h1 class="infoWindowHeading">NOS Mexica</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -29,10 +29,10 @@ var NOSMexica = '<div id="NOSMexicaContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var NOSMexicaInfowindow = new google.maps.InfoWindow({content: NOSMexica, zIndex:1});
 
-var TESLA = '<div id="TESLAContent">' + 
+var TESLA = '<div id="TESLAContent">' +
 			   '	<h1 class="infoWindowHeading">TESLA</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -44,10 +44,10 @@ var TESLA = '<div id="TESLAContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var TESLAInfowindow = new google.maps.InfoWindow({content: TESLA, zIndex:1});
 
-var XYZAustrilia = '<div id="XYZAustriliaContent">' + 
+var XYZAustrilia = '<div id="XYZAustriliaContent">' +
 			   '	<h1 class="infoWindowHeading">XYZ Austrilia</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -59,10 +59,10 @@ var XYZAustrilia = '<div id="XYZAustriliaContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var XYZAustriliaInfowindow = new google.maps.InfoWindow({content: XYZAustrilia, zIndex:1});
 
-var AKAMI = '<div id="AKAMIContent">' + 
+var AKAMI = '<div id="AKAMIContent">' +
 			   '	<h1 class="infoWindowHeading">AKA MI</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -74,10 +74,10 @@ var AKAMI = '<div id="AKAMIContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var AKAMIInfowindow = new google.maps.InfoWindow({content: AKAMI, zIndex:1});
 
-var WOWAZ = '<div id="WOWAZContent">' + 
+var WOWAZ = '<div id="WOWAZContent">' +
 			   '	<h1 class="infoWindowHeading">WOW AZ</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -89,10 +89,10 @@ var WOWAZ = '<div id="WOWAZContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var WOWAZInfowindow = new google.maps.InfoWindow({content: WOWAZ, zIndex:1});
 
-var CNCGermany = '<div id="CNCGermanyContent">' + 
+var CNCGermany = '<div id="CNCGermanyContent">' +
 			   '	<h1 class="infoWindowHeading">CNC Germany</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -104,10 +104,10 @@ var CNCGermany = '<div id="CNCGermanyContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var CNCGermanyInfowindow = new google.maps.InfoWindow({content: CNCGermany, zIndex:1});
 
-var FXCRussia = '<div id="FXCRussiaContent">' + 
+var FXCRussia = '<div id="FXCRussiaContent">' +
 			   '	<h1 class="infoWindowHeading">FXC Russia</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -119,10 +119,10 @@ var FXCRussia = '<div id="FXCRussiaContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var FXCRussiaInfowindow = new google.maps.InfoWindow({content: FXCRussia, zIndex:1});
 
-var TECKorea = '<div id="TECKoreaContent">' + 
+var TECKorea = '<div id="TECKoreaContent">' +
 			   '	<h1 class="infoWindowHeading">TEC Korea</h1>' +
 			   '	<div class="infoWindowBody">' +
 			   '		<table>'  +
@@ -134,11 +134,11 @@ var TECKorea = '<div id="TECKoreaContent">' +
 			   '			</tr>' +
 			   '		</ul>' +
 			   '	</div>' +
-			   '</div>';	
+			   '</div>';
 var TECKoreaInfowindow = new google.maps.InfoWindow({content: TECKorea, zIndex:1});
 
-var infoWindows = [TECKoreaInfowindow, FXCRussiaInfowindow, CNCGermanyInfowindow, 
-                   WOWAZInfowindow, AKAMIInfowindow, XYZAustriliaInfowindow, 
+var infoWindows = [TECKoreaInfowindow, FXCRussiaInfowindow, CNCGermanyInfowindow,
+                   WOWAZInfowindow, AKAMIInfowindow, XYZAustriliaInfowindow,
                    TESLAInfowindow, NOSMexicaInfowindow, ABCChinaInfowindow];
 
 function initializeInfoWindows()

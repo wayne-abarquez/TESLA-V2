@@ -393,6 +393,41 @@ function createWaterPoly(points, mode, partNumber, stamp_point_start) {
     }
 }
 
+function createTeslaInfoWindow(data) {
+    var content = '<div>';
+    content += '<h1 class="infoWindowHeading">' + data.title + '</h1>';
+    content += '<div class="infoWindowBody">';
+    content += '<table><tr>';
+    content += '<td class="tdLeft"> Production Lead Time </td> <td class="tdRight">' + data.content.production_lead_time + ' days</td></tr>';
+    content += '<tr><td class="tdLeft"> Capacity </td> <td class="tdRight">' + data.content.capacity + '</td></tr>';
+    content += '</ul></div></div>';
+
+    return content;
+}
+
+var teslaMarkers = [];
+
+function loadTeslaMarkers () {
+    teslaMarkersData.forEach(function(data){
+
+        var marker = new google.maps.Marker({
+            position: data.position,
+            map: map,
+            title: data.title,
+            icon: data.icon
+        });
+
+        // InfoWindow
+        marker.infowindow = new google.maps.InfoWindow({content: createTeslaInfoWindow(data), zIndex: 1});
+
+        // Marker Listener
+        google.maps.event.addListener(marker, 'click', function () {
+            marker.infowindow.open(map, marker);
+            marker.infowindow.setZIndex(2);
+        });
+    });
+}
+
 function initialize() {
     var mapOptions = {
         center: {
@@ -401,133 +436,136 @@ function initialize() {
         },
         zoom: 3
     };
+
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    var ABCChinaLatLng = new google.maps.LatLng(39.630867, 118.180194);
-    var ABCChinaMarker = new google.maps.Marker({
-        position: ABCChinaLatLng,
-        map: map,
-        title: "ABC China",
-        icon: "images/c-marker.png"
-    });
+    loadTeslaMarkers();
 
-    google.maps.event.addListener(ABCChinaMarker, 'click', function () {
-        ABCChinaInfowindow.open(map, ABCChinaMarker);
-        initializeInfoWindows();
-        ABCChinaInfowindow.setZIndex(2);
-    });
-
-    var NOSMexicaLatLng = new google.maps.LatLng(21.161908, -86.851528);
-    var NOSMexicaMarker = new google.maps.Marker({
-        position: NOSMexicaLatLng,
-        map: map,
-        title: "NOS Mexica",
-        icon: "images/s-marker.png"
-    });
-
-    google.maps.event.addListener(NOSMexicaMarker, 'click', function () {
-        NOSMexicaInfowindow.open(map, NOSMexicaMarker);
-        initializeInfoWindows();
-        NOSMexicaInfowindow.setZIndex(2);
-    });
-
-    var TESLALatLng = new google.maps.LatLng(37.492667, -121.944091);
-    var TESLAMarker = new google.maps.Marker({
-        position: TESLALatLng,
-        map: map,
-        title: "TESLA",
-        icon: "images/tesla-marker.png"
-    });
-
-    google.maps.event.addListener(TESLAMarker, 'click', function () {
-        TESLAInfowindow.open(map, TESLAMarker);
-        initializeInfoWindows();
-        TESLAInfowindow.setZIndex(2);
-    });
-
-    var XYZAustriliaLatLng = new google.maps.LatLng(-20.597908, 117.171393);
-    var XYZAustriliaMarker = new google.maps.Marker({
-        position: XYZAustriliaLatLng,
-        map: map,
-        title: "XYZ Austrilia",
-        icon: "images/c-marker.png"
-    });
-
-    google.maps.event.addListener(XYZAustriliaMarker, 'click', function () {
-        XYZAustriliaInfowindow.open(map, XYZAustriliaMarker);
-        initializeInfoWindows();
-        XYZAustriliaInfowindow.setZIndex(2);
-    });
-
-    var AKAMILatLng = new google.maps.LatLng(42.96336, -85.668086);
-    var AKAMIMarker = new google.maps.Marker({
-        position: AKAMILatLng,
-        map: map,
-        title: "AKA MI",
-        icon: "images/c-marker.png"
-    });
-
-    google.maps.event.addListener(AKAMIMarker, 'click', function () {
-        AKAMIInfowindow.open(map, AKAMIMarker);
-        initializeInfoWindows();
-        AKAMIInfowindow.setZIndex(2);
-    });
-
-    var WOWAZLatLng = new google.maps.LatLng(33.448377, -112.074037);
-    var WOWAZMarker = new google.maps.Marker({
-        position: WOWAZLatLng,
-        map: map,
-        title: "WOW AZ",
-        icon: "images/s-marker.png"
-    });
-
-    google.maps.event.addListener(WOWAZMarker, 'click', function () {
-        WOWAZInfowindow.open(map, WOWAZMarker);
-        initializeInfoWindows();
-        WOWAZInfowindow.setZIndex(2);
-    });
-
-    var CNCGermanyLatLng = new google.maps.LatLng(52.42265, 10.786546);
-    var CNCGermanyMarker = new google.maps.Marker({
-        position: CNCGermanyLatLng,
-        map: map,
-        title: "CNC Germany",
-        icon: "images/c-marker.png"
-    });
-
-    google.maps.event.addListener(CNCGermanyMarker, 'click', function () {
-        CNCGermanyInfowindow.open(map, CNCGermanyMarker);
-        initializeInfoWindows();
-        CNCGermanyInfowindow.setZIndex(2);
-    });
-
-    var FXCRussiaLatLng = new google.maps.LatLng(55.755826, 37.6173);
-    var FXCRussiaMarker = new google.maps.Marker({
-        position: FXCRussiaLatLng,
-        map: map,
-        title: "FXC Russia",
-        icon: "images/c-marker.png"
-    });
-
-    google.maps.event.addListener(FXCRussiaMarker, 'click', function () {
-        FXCRussiaInfowindow.open(map, FXCRussiaMarker);
-        initializeInfoWindows();
-        FXCRussiaInfowindow.setZIndex(2);
-    });
-
-    var TECKoreaLatLng = new google.maps.LatLng(37.566535, 126.977969);
-    var TECKoreaMarker = new google.maps.Marker({
-        position: TECKoreaLatLng,
-        map: map,
-        title: "TEC Korea",
-        icon: "images/c-marker.png"
-    });
-
-    google.maps.event.addListener(TECKoreaMarker, 'click', function () {
-        TECKoreaInfowindow.open(map, TECKoreaMarker);
-        initializeInfoWindows();
-        TECKoreaInfowindow.setZIndex(2);
-    });
+    //var ABCChinaLatLng = new google.maps.LatLng(39.630867, 118.180194);
+    //var ABCChinaMarker = new google.maps.Marker({
+    //    position: ABCChinaLatLng,
+    //    map: map,
+    //    title: "ABC China",
+    //    icon: "images/c-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(ABCChinaMarker, 'click', function () {
+    //    ABCChinaInfowindow.open(map, ABCChinaMarker);
+    //    initializeInfoWindows();
+    //    ABCChinaInfowindow.setZIndex(2);
+    //});
+    //
+    //var NOSMexicaLatLng = new google.maps.LatLng(21.161908, -86.851528);
+    //var NOSMexicaMarker = new google.maps.Marker({
+    //    position: NOSMexicaLatLng,
+    //    map: map,
+    //    title: "NOS Mexica",
+    //    icon: "images/s-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(NOSMexicaMarker, 'click', function () {
+    //    NOSMexicaInfowindow.open(map, NOSMexicaMarker);
+    //    initializeInfoWindows();
+    //    NOSMexicaInfowindow.setZIndex(2);
+    //});
+    //
+    //var TESLALatLng = new google.maps.LatLng(37.492667, -121.944091);
+    //var TESLAMarker = new google.maps.Marker({
+    //    position: TESLALatLng,
+    //    map: map,
+    //    title: "TESLA",
+    //    icon: "images/tesla-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(TESLAMarker, 'click', function () {
+    //    TESLAInfowindow.open(map, TESLAMarker);
+    //    initializeInfoWindows();
+    //    TESLAInfowindow.setZIndex(2);
+    //});
+    //
+    //var XYZAustriliaLatLng = new google.maps.LatLng(-20.597908, 117.171393);
+    //var XYZAustriliaMarker = new google.maps.Marker({
+    //    position: XYZAustriliaLatLng,
+    //    map: map,
+    //    title: "XYZ Austrilia",
+    //    icon: "images/c-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(XYZAustriliaMarker, 'click', function () {
+    //    XYZAustriliaInfowindow.open(map, XYZAustriliaMarker);
+    //    initializeInfoWindows();
+    //    XYZAustriliaInfowindow.setZIndex(2);
+    //});
+    //
+    //var AKAMILatLng = new google.maps.LatLng(42.96336, -85.668086);
+    //var AKAMIMarker = new google.maps.Marker({
+    //    position: AKAMILatLng,
+    //    map: map,
+    //    title: "AKA MI",
+    //    icon: "images/c-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(AKAMIMarker, 'click', function () {
+    //    AKAMIInfowindow.open(map, AKAMIMarker);
+    //    initializeInfoWindows();
+    //    AKAMIInfowindow.setZIndex(2);
+    //});
+    //
+    //var WOWAZLatLng = new google.maps.LatLng(33.448377, -112.074037);
+    //var WOWAZMarker = new google.maps.Marker({
+    //    position: WOWAZLatLng,
+    //    map: map,
+    //    title: "WOW AZ",
+    //    icon: "images/s-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(WOWAZMarker, 'click', function () {
+    //    WOWAZInfowindow.open(map, WOWAZMarker);
+    //    initializeInfoWindows();
+    //    WOWAZInfowindow.setZIndex(2);
+    //});
+    //
+    //var CNCGermanyLatLng = new google.maps.LatLng(52.42265, 10.786546);
+    //var CNCGermanyMarker = new google.maps.Marker({
+    //    position: CNCGermanyLatLng,
+    //    map: map,
+    //    title: "CNC Germany",
+    //    icon: "images/c-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(CNCGermanyMarker, 'click', function () {
+    //    CNCGermanyInfowindow.open(map, CNCGermanyMarker);
+    //    initializeInfoWindows();
+    //    CNCGermanyInfowindow.setZIndex(2);
+    //});
+    //
+    //var FXCRussiaLatLng = new google.maps.LatLng(55.755826, 37.6173);
+    //var FXCRussiaMarker = new google.maps.Marker({
+    //    position: FXCRussiaLatLng,
+    //    map: map,
+    //    title: "FXC Russia",
+    //    icon: "images/c-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(FXCRussiaMarker, 'click', function () {
+    //    FXCRussiaInfowindow.open(map, FXCRussiaMarker);
+    //    initializeInfoWindows();
+    //    FXCRussiaInfowindow.setZIndex(2);
+    //});
+    //
+    //var TECKoreaLatLng = new google.maps.LatLng(37.566535, 126.977969);
+    //var TECKoreaMarker = new google.maps.Marker({
+    //    position: TECKoreaLatLng,
+    //    map: map,
+    //    title: "TEC Korea",
+    //    icon: "images/c-marker.png"
+    //});
+    //
+    //google.maps.event.addListener(TECKoreaMarker, 'click', function () {
+    //    TECKoreaInfowindow.open(map, TECKoreaMarker);
+    //    initializeInfoWindows();
+    //    TECKoreaInfowindow.setZIndex(2);
+    //});
 
     setArrows = new ArrowHandler();
 
